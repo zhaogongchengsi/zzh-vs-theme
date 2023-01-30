@@ -23,7 +23,8 @@ var config = {
       join(theme, "zzhtheme-light.json"),
       jsonFromat(generateTheme({ name: "ZzhTheme Light", base: "vs" }), config)
     );
-  } catch {
+  } catch (err) {
+    console.error(err);
     process.exit(0);
   }
 })();
