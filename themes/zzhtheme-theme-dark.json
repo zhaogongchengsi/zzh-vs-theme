@@ -1,9 +1,8 @@
 {
-  "name": "zzhtheme-dark",
+  "name": "zzhTheme Dark",
   "colors": {
     // 编辑区域的背景颜色
     "editor.background": "#191919",
-
     // 光标背景颜色
     "editorCursor.background": "#FA7070",
     // 顶部菜单 item 背景颜色
@@ -15,21 +14,27 @@
     "titleBar.inactiveBackground": "#191919",
     // 面板显示在编辑器区域下方，包含输出和集成终端等视图的背景颜色
     "panel.background": "#191919",
-    // 顶部菜单 item 字体颜色
-    "menu.foreground": "#2192FF",
+    // 顶部菜单 item 字体颜色579BB1
+    "menu.foreground": "#F5F5F5",
     // 顶部菜单 边框颜色
     "menu.border": "#525252",
     // 活动栏背景颜色
     "activityBar.background": "#191919",
     // 活动栏边框颜色
     "activityBar.border": "#525252",
+	// 活动栏字体颜色
+	"activityBar.foreground": "#F4F9F9",
+	"activityBar.activeBorder": "#F4F9F9",
     // 右侧 文件树
     "sideBar.background": "#191919",
     // 侧边栏边框的颜色
     "sideBar.border": "#525252",
-    // 拖放侧边栏部分的反馈颜色。颜色应具有透明度，以便侧边栏部分仍然可以发光。
-    // "sideBar.dropBackground": "#333333"
-    // 编辑区域的tab 激活页的颜色
+	// 侧边栏字体颜色
+	"sideBar.foreground": "#F4F9F9",
+	"sideBarTitle.foreground": "#F4F9F9",
+	"sideBarSectionHeader.background": "#1D1D1D",
+	"sideBarSectionHeader.foreground": "#F4F9F9",
+	"sideBarSectionHeader.border": "#323232",
     // tabs 其余空白背景颜色
     "editorGroupHeader.noTabsBackground": "#141E61",
     "editorGroupHeader.tabsBackground": "#191919",
@@ -51,9 +56,6 @@
     "editorCursor.foreground": "#937DC2",
     // 光标选中的颜色
     "editor.selectionBackground": "#ffffff19",
-    // ------
-    "activityBarBadge.background": "#323232",
-    "sideBarTitle.foreground": "#323232",
     "selection.background": "#FEFBF3",
     "descriptionForeground": "#ffffff",
     "errorForeground": "#333333"

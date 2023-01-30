@@ -16,12 +16,12 @@
   "contributes": {
     "themes": [
       {
-        "label": "zzhtheme-dark",
+        "label": "zzhTheme Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/zzhtheme-theme-dark.json"
       },
       {
-        "label": "zzhtheme-light",
+        "label": "zzhtheme Light",
         "uiTheme": "hc-light",
         "path": "./themes/zzhtheme-theme-light.json"
       }
