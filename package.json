@@ -10,21 +10,25 @@
     "Themes"
   ],
   "scripts": {
-    "build": "",
-    "dev": ""
+    "build": "esno src/index.ts",
+    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\""
   },
   "contributes": {
     "themes": [
       {
-        "label": "zzhTheme Dark",
+        "label": "ZzhTheme Dark",
         "uiTheme": "vs-dark",
-        "path": "./themes/zzhtheme-theme-dark.json"
+        "path": "./themes/zzhtheme-dark.json"
       },
       {
-        "label": "zzhtheme Light",
-        "uiTheme": "hc-light",
-        "path": "./themes/zzhtheme-theme-light.json"
+        "label": "ZzhTheme Light",
+        "uiTheme": "vs",
+        "path": "./themes/zzhtheme-light.json"
       }
     ]
+  },
+  "devDependencies": {
+    "esno": "^0.16.3",
+    "nodemon": "^2.0.20"
   }
 }
