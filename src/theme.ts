@@ -1,4 +1,5 @@
-import { Colors } from "./colors";
+import { generateColor } from "./baseColor";
+import { generateTokenColors } from "./tokenColor";
 
 export interface ThemeOptions {
   name: string;
@@ -6,9 +7,10 @@ export interface ThemeOptions {
 }
 
 export function generateTheme({ name, base }: ThemeOptions) {
-
   return {
     name,
     base,
+    colors: generateColor(base),
+    tokenColors: generateTokenColors(base)
   };
 }
