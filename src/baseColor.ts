@@ -10,9 +10,14 @@ const config = {
     "sideBar.background",
     "editorGroupHeader.tabsBackground",
     "tab.inactiveBackground",
-    
   ],
-  foreground: ["editor.background", "editorCursor.background"],
+  foreground: [
+    "activityBar.foreground",
+    "activityBar.activeBorder",
+    "sideBar.foreground",
+    "sideBarTitle.foreground",
+    "sideBarSectionHeader.foreground",
+  ],
 };
 
 export function generateColor(base: "vs" | "vs-dark") {
