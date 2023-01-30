@@ -10,7 +10,7 @@ export function generateColor(base: "vs" | "vs-dark") {
 
   for (const [colorName, keys] of Object.entries(config)) {
     keys.forEach(key => {
-        colors[key] = basecolors[colorName]
+        colors[key] = basecolors[colorName] || "#FF5D5D"
     })
   }
 
