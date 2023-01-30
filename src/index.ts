@@ -1,24 +1,28 @@
 import { promises as fs } from "fs";
 import { join } from "path";
+import jsonFromat from "json-format";
 import { generateTheme } from "./theme";
 
 const theme = "./dist";
+var config = {
+  type: "space",
+  size: 2,
+};
 
 (async function () {
   try {
     await fs.mkdir(theme, { recursive: true });
     fs.writeFile(
       join(theme, "zzhtheme-dark.json"),
-      JSON.stringify(
-        generateTheme({ name: "ZzhTheme Dark", base: "vs-dark" })
+      jsonFromat(
+        generateTheme({ name: "ZzhTheme Dark", base: "vs-dark" }),
+        config
       )
     );
     fs.writeFile(
-        join(theme, "zzhtheme-light.json"),
-        JSON.stringify(
-          generateTheme({ name: "ZzhTheme Light", base: "vs" })
-        )
-      );
+      join(theme, "zzhtheme-light.json"),
+      jsonFromat(generateTheme({ name: "ZzhTheme Light", base: "vs" }), config)
+    );
   } catch {
     process.exit(0);
   }

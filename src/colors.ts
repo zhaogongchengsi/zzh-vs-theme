@@ -1,7 +1,7 @@
 // [light, dark]
 const ZZH_THEME = {
-  primary: ["#4d9375", "#1c6b48"],
-  foreground: ["#dbd7caee", "#393a34"],
+  primary: ["#191919", "#F9F9F9"],
+  foreground: ["#F4F9F9", "#333333"],
 } as const;
 
 export function getColors(base: "vs" | "vs-dark") {

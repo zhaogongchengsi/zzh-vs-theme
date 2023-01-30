@@ -3,7 +3,11 @@ lockfileVersion: 5.4
 specifiers:
   '@types/node': ^18.11.18
   esno: ^0.16.3
+  json-format: ^1.0.1
   nodemon: ^2.0.20
+
+dependencies:
+  json-format: registry.npmmirror.com/json-format/1.0.1
 
 devDependencies:
   '@types/node': registry.npmmirror.com/@types/node/18.11.18
@@ -497,6 +501,12 @@ packages:
     version: 7.0.0
     engines: {node: '>=0.12.0'}
     dev: true
+
+  registry.npmmirror.com/json-format/1.0.1:
+    resolution: {integrity: sha512-MoKIg/lBeQALqjYnqEanikfo3zBKRwclpXJexdF0FUniYAAN2ypEIXBEtpQb+9BkLFtDK1fyTLAsnGlyGfLGxw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/json-format/-/json-format-1.0.1.tgz}
+    name: json-format
+    version: 1.0.1
+    dev: false
 
   registry.npmmirror.com/minimatch/3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/minimatch/-/minimatch-3.1.2.tgz}

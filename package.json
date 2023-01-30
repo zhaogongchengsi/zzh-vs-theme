@@ -37,5 +37,8 @@
     "@types/node": "^18.11.18",
     "esno": "^0.16.3",
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "json-format": "^1.0.1"
   }
 }
