@@ -1,0 +1,30 @@
+{
+  "name": "zzhtheme",
+  "displayName": "zzhtheme",
+  "description": "zzh exlusive theme",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "scripts": {
+    "build": "",
+    "dev": ""
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "zzhtheme-dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/zzhtheme-theme-dark.json"
+      },
+      {
+        "label": "zzhtheme-light",
+        "uiTheme": "hc-light",
+        "path": "./themes/zzhtheme-theme-light.json"
+      }
+    ]
+  }
+}
