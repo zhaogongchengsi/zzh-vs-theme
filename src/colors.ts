@@ -1,3 +1,4 @@
+
 // [dark, light]
 const ZZH_THEME = {
   primary: ["#191919", "#F9F9F9"],
@@ -15,25 +16,25 @@ const ZZH_THEME = {
   // token colors
   // 注释token
   comment: ["#525252", "#a0ada0"],
-  // 字符串 token
-  string: ["#FF75A0", "#b56959"],
-  // 变量token
-  variable: ["#AEC2C1", "#b07d48"],
-  // 关键字 token
-  keyword: ["#439A97", "#1e754f"],
-  // 对象属性
-  property: ["#937DC2", "#998418"],
 
-  number: ["#4C9A91", "#2f798a"],
-  boolean: ["#4d9375", "#1e754f"],
+  // 关键字 token
+  keyword: ["#F56EB3", "#1e754f"],
+  // 对象属性
+  property: ["#579BB1", "#998418"],
+  // 字符串 token
+  string: ["#BA94D1", "#b56959"],
+  // 变量token
+  variable: ["#14C38E", "#b07d48"],
+  // 函数token
+  function: ["#A3C7D6", "#59873a"],
+
+  number: ["#0CECDD", "#2f798a"],
+  boolean: ["#1EAE98", "#1e754f"],
 
   // 运算符
   operator: ["#cb7676", "#ab5959"],
 
 
-  // 函数token 绿色
-  function: ["#3D8361", "#59873a"],
-  
   constant: ["#c99076", "#a65e2b"],
   class: ["#6893BF", "#5a6aa6"],
   interface: ["#5DA994", "#2e8f82"],
@@ -43,7 +44,7 @@ const ZZH_THEME = {
   namespace: ["#db889a", "#b05a78"],
   punctuation: ["#666666", "#999999"],
   decorator: ["#bd8f8f", "#bd8f8f"],
-  
+
   regex: ["#54BAB9", "#ab5e3f"],
   async: ["#5AA897", "#ab5e3f"],
   // colors
