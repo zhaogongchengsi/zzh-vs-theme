@@ -28,6 +28,7 @@ const config = {
     "sideBar.foreground",
     "sideBarTitle.foreground",
     "sideBarSectionHeader.foreground",
+    "foreground"
   ],
   activeForeground: ["editorLineNumber.activeForeground"],
   borderLevelOne: ["sideBarSectionHeader.border"],

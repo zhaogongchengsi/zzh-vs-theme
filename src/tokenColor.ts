@@ -314,5 +314,87 @@ export function generateTokenColors(base: "vs" | "vs-dark") {
         fontStyle: "normal",
       },
     },
+
+    {
+      scope: [
+        "markup.deleted",
+        "meta.diff.header.from-file",
+        "punctuation.definition.deleted",
+      ],
+      settings: {
+        background: basecolors.red[0],
+        foreground: basecolors.red[7],
+      },
+    },
+    {
+      scope: [
+        "markup.inserted",
+        "meta.diff.header.to-file",
+        "punctuation.definition.inserted",
+      ],
+      settings: {
+        background: basecolors.green[0],
+        foreground: basecolors.green[6],
+      },
+    },
+    {
+      scope: ["markup.changed", "punctuation.definition.changed"],
+      settings: {
+        background: basecolors.orange[1],
+        foreground: basecolors.orange[6],
+      },
+    },
+    {
+      scope: ["markup.ignored", "markup.untracked"],
+      settings: {
+        foreground: basecolors.gray[1],
+        background: basecolors.blue[6],
+      },
+    },
+    {
+      scope: "meta.diff.range",
+      settings: {
+        foreground: { light: basecolors.purple[5], dark: basecolors.purple[6] },
+        fontStyle: "bold",
+      },
+    },
+    {
+      scope: "meta.diff.header",
+      settings: {
+        foreground: basecolors.blue[6],
+      },
+    },
+    {
+      scope: "meta.separator",
+      settings: {
+        fontStyle: "bold",
+        foreground: basecolors.blue[6],
+      },
+    },
+    {
+      scope: "meta.output",
+      settings: {
+        foreground: basecolors.blue[6],
+      },
+    },
+    {
+      scope: [
+        "brackethighlighter.tag",
+        "brackethighlighter.curly",
+        "brackethighlighter.round",
+        "brackethighlighter.square",
+        "brackethighlighter.angle",
+        "brackethighlighter.quote",
+      ],
+      settings: {
+        foreground: basecolors.gray[6],
+      },
+    },
+    {
+      scope: "brackethighlighter.unmatched",
+      settings: {
+        foreground: basecolors.red[7],
+      },
+    },
   ];
 }
