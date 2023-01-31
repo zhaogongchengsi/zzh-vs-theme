@@ -3,7 +3,7 @@ import { join } from "path";
 import jsonFromat from "json-format";
 import { generateTheme } from "./theme";
 
-const theme = "./dist";
+const theme = "./themes";
 var config = {
   type: "space",
   size: 2,

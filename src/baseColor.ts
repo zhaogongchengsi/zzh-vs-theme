@@ -18,6 +18,10 @@ const config = {
     "editorGroupHeader.tabsBackground",
     "tab.inactiveBackground",
   ],
+  activePrimary: ["tab.activeBackground"],
+  black: [
+    "statusBar.background", // 编辑区域 活动页激活颜色
+  ],
   foreground: [
     "activityBar.foreground",
     "activityBar.activeBorder",
@@ -25,6 +29,9 @@ const config = {
     "sideBarTitle.foreground",
     "sideBarSectionHeader.foreground",
   ],
+  activeForeground: ["editorLineNumber.activeForeground"],
+  borderLevelOne: ["sideBarSectionHeader.border"],
+  borderLevelTwo: ["sideBar.border"],
 };
 
 export function generateColor(base: "vs" | "vs-dark") {

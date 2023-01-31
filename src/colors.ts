@@ -1,13 +1,16 @@
 // [dark, light]
 const ZZH_THEME = {
   primary: ["#191919", "#F9F9F9"],
+  activePrimary: ["#363636", "#ffffff"],
   foreground: ["#F4F9F9", "#333333"],
 
   activeForeground: ["#bfbaaa", "#4e4f47"],
   secondaryForeground: ["#dedcd590", "#393a3490"],
   ignored: ["#dedcd530", "#393a3450"],
   faded: ["#dedcd510", "#393a3410"],
-  border: ["#191919", "#f0f0f0"],
+  borderLevelOne: ["#323232", "#f0f0f0"],
+  borderLevelTwo: ["#525252", "#f0f0f0"],
+  background: ["#171717", "#ffffff"],
 
   // token colors
   comment: ["#758575dd", "#a0ada0"],
@@ -37,6 +40,7 @@ const ZZH_THEME = {
   orange: ["#d4976c", "#a65e2b"],
   yellow: ["#e6cc77", "#bda437"],
   magenta: ["#d9739f", "#a13865"],
+  black: ["#151515", "#ffffff"],
 } as const;
 
 export type ColorName = keyof typeof ZZH_THEME;
