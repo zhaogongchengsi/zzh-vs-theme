@@ -354,7 +354,7 @@ export function generateTokenColors(base: "vs" | "vs-dark") {
     {
       scope: "meta.diff.range",
       settings: {
-        foreground: { light: basecolors.purple[5], dark: basecolors.purple[6] },
+        foreground: base === "vs" ? basecolors.purple[5] : basecolors.purple[6],
         fontStyle: "bold",
       },
     },

@@ -1,7 +1,8 @@
 
 // [dark, light]
 const ZZH_THEME = {
-  primary: ["#191919", "#F9F9F9"],
+  primary: ["#14C38E", "#b07d48"],
+ 
   activePrimary: ["#363636", "#ffffff"],
   foreground: ["#F4F9F9", "#333333"],
 
@@ -11,7 +12,8 @@ const ZZH_THEME = {
   faded: ["#dedcd510", "#393a3410"],
   borderLevelOne: ["#323232", "#f0f0f0"],
   borderLevelTwo: ["#525252", "#f0f0f0"],
-  background: ["#171717", "#ffffff"],
+  background: ["#191919", "#F9F9F9"],
+  backgroundActive: ["#171717", "#ffffff"],
 
   // token colors
   // 注释token

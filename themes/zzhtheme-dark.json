@@ -1,6 +1,14 @@
 {
   "name": "ZzhTheme Dark",
   "base": "vs-dark",
+  "semanticHighlighting": true,
+  "semanticTokenColors": {
+    "namespace": "#db889a",
+    "property": "#579BB1",
+    "interface": "#5DA994",
+    "type": "#5DA994",
+    "class": "#6893BF"
+  },
   "colors": {
     "editor.background": "#191919",
     "menu.background": "#191919",
@@ -11,6 +19,10 @@
     "sideBar.background": "#191919",
     "editorGroupHeader.tabsBackground": "#191919",
     "tab.inactiveBackground": "#191919",
+    "debugToolBar.background": "#191919",
+    "peekViewEditor.background": "#191919",
+    "peekViewResult.background": "#191919",
+    "settings.headerForeground": "#191919",
     "tab.activeBackground": "#363636",
     "statusBar.background": "#FF5D5D",
     "activityBar.foreground": "#F4F9F9",
@@ -19,9 +31,57 @@
     "sideBarTitle.foreground": "#F4F9F9",
     "sideBarSectionHeader.foreground": "#F4F9F9",
     "foreground": "#F4F9F9",
+    "terminal.foreground": "#F4F9F9",
     "editorLineNumber.activeForeground": "#bfbaaa",
     "sideBarSectionHeader.border": "#323232",
-    "sideBar.border": "#525252"
+    "sideBar.border": "#525252",
+    "button.background": "#14C38E",
+    "button.hoverBackground": "#14C38E",
+    "settings.modifiedItemIndicator": "#14C38E",
+    "terminal.selectionBackground": "#FF5D5D",
+    "terminal.ansiBrightGreen": "#f0fff4",
+    "terminal.ansiGreen": "#f0fff4",
+    "gitDecoration.addedResourceForeground": "#f0fff4",
+    "editorGutter.addedBackground": "#f0fff4",
+    "editorBracketHighlight.foreground2": "#f0fff4",
+    "editorHint.foreground": "#f0fff4",
+    "gitDecoration.submoduleResourceForeground": "#dedcd590",
+    "editorGutter.foldingControlForeground": "#dedcd590",
+    "terminal.ansiBrightBlack": "#777777",
+    "terminal.ansiBrightBlue": "#f1f8ff",
+    "terminal.ansiBrightCyan": "#5eaab5",
+    "terminal.ansiBrightMagenta": "#d9739f",
+    "terminal.ansiBrightRed": "#ffeef0",
+    "terminal.ansiBrightWhite": "#ffffff",
+    "terminal.ansiBrightYellow": "#fffdef",
+    "terminal.ansiBlack": "F",
+    "terminal.ansiBlue": "#f1f8ff",
+    "terminal.ansiCyan": "#5eaab5",
+    "terminal.ansiMagenta": "#d9739f",
+    "terminal.ansiRed": "#ffeef0",
+    "terminal.ansiWhite": "#",
+    "terminal.ansiYellow": "#fffdef",
+    "gitDecoration.modifiedResourceForeground": "#f1f8ff",
+    "gitDecoration.deletedResourceForeground": "#ffeef0",
+    "gitDecoration.untrackedResourceForeground": "#5eaab5",
+    "gitDecoration.ignoredResourceForeground": "#dedcd530",
+    "gitDecoration.conflictingResourceForeground": "#fff8f2",
+    "editorGutter.modifiedBackground": "#f1f8ff",
+    "editorGutter.deletedBackground": "#ffeef0",
+    "editorBracketHighlight.foreground1": "#5eaab5",
+    "editorBracketHighlight.foreground3": "#fff8f2",
+    "editorBracketHighlight.foreground4": "#d9739f",
+    "editorBracketHighlight.foreground5": "#fffdef",
+    "editorBracketHighlight.foreground6": "#f1f8ff",
+    "problemsErrorIcon.foreground": "#ffeef0",
+    "problemsWarningIcon.foreground": "#fff8f2",
+    "problemsInfoIcon.foreground": "#f1f8ff",
+    "editorError.foreground": "#ffeef0",
+    "editorWarning.foreground": "#fff8f2",
+    "editorInfo.foreground": "#f1f8ff",
+    "editorGutter.commentRangeForeground": "#dedcd530",
+    "editorInlayHint.foreground": "#666666",
+    "editorInlayHint.background": "#00000000"
   },
   "tokenColors": [
     {
@@ -285,7 +345,7 @@
     {
       "scope": "meta.module-reference",
       "settings": {
-        "foreground": "#191919"
+        "foreground": "#14C38E"
       }
     },
     {
@@ -301,7 +361,7 @@
       ],
       "settings": {
         "fontStyle": "bold",
-        "foreground": "#191919"
+        "foreground": "#14C38E"
       }
     },
     {
@@ -327,7 +387,7 @@
     {
       "scope": "markup.raw",
       "settings": {
-        "foreground": "#191919"
+        "foreground": "#14C38E"
       }
     },
     {
@@ -418,10 +478,7 @@
     {
       "scope": "meta.diff.range",
       "settings": {
-        "foreground": {
-          "light": "f",
-          "dark": "f"
-        },
+        "foreground": "f",
         "fontStyle": "bold"
       }
     },
