@@ -1,8 +1,8 @@
 {
-  "name": "zzhtheme",
+  "name": "zzh-theme",
   "displayName": "zzhtheme",
   "description": "Personal custom theme, only dark theme",
-  "version": "1.0.0",
+  "version": "1.5.5",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -18,8 +18,11 @@
   "scripts": {
     "build": "esno src/index.ts",
     "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
+    "vsix": "vsce package",
+    "vscode:prepublish": "npm run build",
     "release": "npm run build && npx bumpp --commit --tag --push --all && vsce publish --no-dependencies"
   },
+  "icon": "logo.png",
   "publisher": "langlang",
   "bugs": {
     "url": "https://github.com/zhaogongchengsi/zzh-vs-theme/issues",
