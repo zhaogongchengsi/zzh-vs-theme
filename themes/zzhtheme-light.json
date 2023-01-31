@@ -167,6 +167,14 @@
     },
     {
       "scope": [
+        "async"
+      ],
+      "settings": {
+        "foreground": "#ab5e3f"
+      }
+    },
+    {
+      "scope": [
         "entity.other.attribute-name",
         "invalid.deprecated.entity.other.attribute-name.html"
       ],

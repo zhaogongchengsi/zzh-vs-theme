@@ -2,8 +2,8 @@ import { getColors, ColorName } from "./colors";
 
 export function generateTokenColors(base: "vs" | "vs-dark") {
   const basecolors = getColors(base);
-  const getColor = (key: ColorName, op:string = '') => {
-    return basecolors[key] + op
+  const getColor = (key: ColorName, op: string = "") => {
+    return basecolors[key] + op;
   };
 
   const foreground = getColor("foreground");
@@ -138,6 +138,12 @@ export function generateTokenColors(base: "vs" | "vs-dark") {
       ],
       settings: {
         foreground: getColor("property"),
+      },
+    },
+    {
+      scope: ["async"],
+      settings: {
+        foreground: getColor("async"),
       },
     },
     {
