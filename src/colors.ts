@@ -100,11 +100,11 @@ const colors = {
     "#6d224f",
   ],
   editorBracketHighlight: [
-    "#810CA8",
-    "#fedbf0",
-    "#f9b3dd",
-    "#f692ce",
-    "#ec6cb9",
+    "#FFE15D",
+    "#8FBDD3",
+    "#EA5C2B",
+    "#FF8DC7",
+    "#B2A4FF",
     "#ea4aaa",
   ],
 };
