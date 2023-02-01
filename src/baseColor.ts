@@ -70,18 +70,18 @@ function unique(base: "vs" | "vs-dark") {
   const basecolors = getColors(base);
 
   const zzhtheme = (name: ColorName) => {
-    return getThemeColors()[name];
+    return basecolors[name];
   };
+
+  const getBaseColor = (name: ColorName) => getThemeColors()[name]
 
   const pick = ({ light, dark }: { light: string; dark: string }) => {
     return base === "vs" ? light : dark;
   };
 
-  console.log(zzhtheme("editorBracketHighlight"));
-
   return {
     "terminal.ansiBrightBlack": pick({ light: "#aaaaaa", dark: "#777777" }),
-    "terminal.ansiBrightBlue": zzhtheme("blue"),
+    "terminal.ansiBrightBlue": zzhtheme("blue")[base === "vs" ? 0 : 1],
     "terminal.ansiBrightCyan": zzhtheme("cyan"),
     "terminal.ansiBrightMagenta": zzhtheme("magenta"),
     "terminal.ansiBrightRed": zzhtheme("red"),
@@ -110,12 +110,12 @@ function unique(base: "vs" | "vs-dark") {
     "editorGutter.modifiedBackground": zzhtheme("blue"),
     "editorGutter.deletedBackground": zzhtheme("red"),
 
-    "editorBracketHighlight.foreground1": zzhtheme("editorBracketHighlight")[0],
-    "editorBracketHighlight.foreground2": zzhtheme("editorBracketHighlight")[1],
-    "editorBracketHighlight.foreground3": zzhtheme("editorBracketHighlight")[2],
-    "editorBracketHighlight.foreground4": zzhtheme("editorBracketHighlight")[3],
-    "editorBracketHighlight.foreground5": zzhtheme("editorBracketHighlight")[4],
-    "editorBracketHighlight.foreground6": zzhtheme("editorBracketHighlight")[5],
+    "editorBracketHighlight.foreground1": getBaseColor("editorBracketHighlight")[0],
+    "editorBracketHighlight.foreground2": getBaseColor("editorBracketHighlight")[1],
+    "editorBracketHighlight.foreground3": getBaseColor("editorBracketHighlight")[2],
+    "editorBracketHighlight.foreground4": getBaseColor("editorBracketHighlight")[3],
+    "editorBracketHighlight.foreground5": getBaseColor("editorBracketHighlight")[4],
+    "editorBracketHighlight.foreground6": getBaseColor("editorBracketHighlight")[5],
 
     "problemsErrorIcon.foreground": zzhtheme("error"),
     "problemsWarningIcon.foreground": zzhtheme("orange"),
