@@ -6,6 +6,8 @@ export function generateTokenColors(base: "vs" | "vs-dark") {
     return basecolors[key] + op;
   };
 
+  const getBaseColor = (name: ColorName) => getThemeColors()[name];
+
   const foreground = getColor("foreground");
   const secondaryForeground = getColor("secondaryForeground");
   const primary = getColor("primary");
@@ -322,8 +324,8 @@ export function generateTokenColors(base: "vs" | "vs-dark") {
         "punctuation.definition.deleted",
       ],
       settings: {
-        background: basecolors.red[0],
-        foreground: basecolors.red[7],
+        background: getBaseColor("red")[0],
+        foreground: getBaseColor("red")[7],
       },
     },
     {
@@ -333,48 +335,49 @@ export function generateTokenColors(base: "vs" | "vs-dark") {
         "punctuation.definition.inserted",
       ],
       settings: {
-        background: basecolors.green[0],
-        foreground: basecolors.green[6],
+        background: getBaseColor("green")[0],
+        foreground: getBaseColor("green")[6],
       },
     },
     {
       scope: ["markup.changed", "punctuation.definition.changed"],
       settings: {
-        background: basecolors.orange[1],
-        foreground: basecolors.orange[6],
+        background: getBaseColor("orange")[1],
+        foreground: getBaseColor("orange")[6],
       },
     },
     {
       scope: ["markup.ignored", "markup.untracked"],
       settings: {
-        foreground: basecolors.gray[1],
-        background: basecolors.blue[6],
+        foreground: getBaseColor("gray")[1],
+        background: getBaseColor("blue")[6],
       },
     },
     {
       scope: "meta.diff.range",
       settings: {
-        foreground: base === "vs" ? basecolors.purple[5] : basecolors.purple[6],
+        foreground:
+          base === "vs" ? getBaseColor("purple")[5] : getBaseColor("purple")[6],
         fontStyle: "bold",
       },
     },
     {
       scope: "meta.diff.header",
       settings: {
-        foreground: basecolors.blue[6],
+        foreground: getBaseColor("blue")[6],
       },
     },
     {
       scope: "meta.separator",
       settings: {
         fontStyle: "bold",
-        foreground: basecolors.blue[6],
+        foreground: getBaseColor("blue")[6],
       },
     },
     {
       scope: "meta.output",
       settings: {
-        foreground: basecolors.blue[6],
+        foreground: getBaseColor("blue")[6],
       },
     },
     {
@@ -387,13 +390,13 @@ export function generateTokenColors(base: "vs" | "vs-dark") {
         "brackethighlighter.quote",
       ],
       settings: {
-        foreground: basecolors.gray[6],
+        foreground: getBaseColor("gray")[6],
       },
     },
     {
       scope: "brackethighlighter.unmatched",
       settings: {
-        foreground: basecolors.red[7],
+        foreground: getBaseColor("red")[7],
       },
     },
   ];
