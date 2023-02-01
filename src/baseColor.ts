@@ -34,11 +34,7 @@ const config = {
   activeForeground: ["editorLineNumber.activeForeground"],
   borderLevelOne: ["sideBarSectionHeader.border"],
   borderLevelTwo: ["sideBar.border", "activityBar.border"],
-  primary: [
-    "button.background",
-    "button.hoverBackground",
-    "settings.modifiedItemIndicator",
-  ],
+  primary: ["button.background", "button.hoverBackground", "settings.modifiedItemIndicator"],
   selectionBackground: ["terminal.selectionBackground"],
   green: [
     "terminal.ansiBrightGreen",
@@ -47,10 +43,7 @@ const config = {
     "editorGutter.addedBackground",
     "editorHint.foreground",
   ],
-  secondaryForeground: [
-    "gitDecoration.submoduleResourceForeground",
-    "editorGutter.foldingControlForeground",
-  ],
+  secondaryForeground: ["gitDecoration.submoduleResourceForeground", "editorGutter.foldingControlForeground"],
 };
 
 export function generateColor(base: "vs" | "vs-dark") {
@@ -73,7 +66,9 @@ function unique(base: "vs" | "vs-dark") {
     return basecolors[name];
   };
 
-  const getBaseColor = (name: ColorName) => getThemeColors()[name]
+  const getBaseColor = (name: ColorName) => getThemeColors()[name][base === "vs" ? 0 : 1];
+
+  const getBaseAllColor = (name: ColorName) => getThemeColors()[name];
 
   const pick = ({ light, dark }: { light: string; dark: string }) => {
     return base === "vs" ? light : dark;
@@ -81,24 +76,18 @@ function unique(base: "vs" | "vs-dark") {
 
   return {
     "terminal.ansiBrightBlack": pick({ light: "#aaaaaa", dark: "#777777" }),
-    "terminal.ansiBrightBlue": zzhtheme("blue")[base === "vs" ? 0 : 1],
+    "terminal.ansiBrightBlue": zzhtheme("blue"),
     "terminal.ansiBrightCyan": zzhtheme("cyan"),
     "terminal.ansiBrightMagenta": zzhtheme("magenta"),
     "terminal.ansiBrightRed": zzhtheme("red"),
     "terminal.ansiBrightWhite": pick({ light: "#dddddd", dark: "#ffffff" }),
     "terminal.ansiBrightYellow": zzhtheme("yellow"),
-    "terminal.ansiBlack": pick({
-      light: basecolors.background[0],
-      dark: basecolors.foreground[1],
-    }),
+    "terminal.ansiBlack": getBaseColor("black"),
     "terminal.ansiBlue": zzhtheme("blue"),
     "terminal.ansiCyan": zzhtheme("cyan"),
     "terminal.ansiMagenta": zzhtheme("magenta"),
     "terminal.ansiRed": zzhtheme("red"),
-    "terminal.ansiWhite": pick({
-      light: basecolors.foreground[0],
-      dark: basecolors.foreground[0],
-    }),
+    "terminal.ansiWhite": zzhtheme("foreground"),
     "terminal.ansiYellow": zzhtheme("yellow"),
 
     "gitDecoration.modifiedResourceForeground": zzhtheme("blue"),
@@ -110,12 +99,12 @@ function unique(base: "vs" | "vs-dark") {
     "editorGutter.modifiedBackground": zzhtheme("blue"),
     "editorGutter.deletedBackground": zzhtheme("red"),
 
-    "editorBracketHighlight.foreground1": getBaseColor("editorBracketHighlight")[0],
-    "editorBracketHighlight.foreground2": getBaseColor("editorBracketHighlight")[1],
-    "editorBracketHighlight.foreground3": getBaseColor("editorBracketHighlight")[2],
-    "editorBracketHighlight.foreground4": getBaseColor("editorBracketHighlight")[3],
-    "editorBracketHighlight.foreground5": getBaseColor("editorBracketHighlight")[4],
-    "editorBracketHighlight.foreground6": getBaseColor("editorBracketHighlight")[5],
+    "editorBracketHighlight.foreground1": getBaseAllColor("editorBracketHighlight")[0],
+    "editorBracketHighlight.foreground2": getBaseAllColor("editorBracketHighlight")[1],
+    "editorBracketHighlight.foreground3": getBaseAllColor("editorBracketHighlight")[2],
+    "editorBracketHighlight.foreground4": getBaseAllColor("editorBracketHighlight")[3],
+    "editorBracketHighlight.foreground5": getBaseAllColor("editorBracketHighlight")[4],
+    "editorBracketHighlight.foreground6": getBaseAllColor("editorBracketHighlight")[5],
 
     "problemsErrorIcon.foreground": zzhtheme("error"),
     "problemsWarningIcon.foreground": zzhtheme("orange"),
