@@ -33,7 +33,7 @@ const config = {
     "terminal.foreground",
     "settings.headerForeground",
   ],
-  activeForeground: ["editorLineNumber.activeForeground", "The line that indicates a modified setting."],
+  activeForeground: ["editorLineNumber.activeForeground"],
   borderLevelOne: ["sideBarSectionHeader.border"],
   borderLevelTwo: ["sideBar.border", "activityBar.border"],
   primary: [
@@ -65,7 +65,9 @@ export function generateColor(base: "vs" | "vs-dark") {
     });
   }
 
-  return Object.assign(colors, unique(base));
+  const resColor: any = Object.assign(colors, unique(base));
+
+  return formatColorJson(resColor);
 }
 
 function unique(base: "vs" | "vs-dark") {
@@ -75,45 +77,38 @@ function unique(base: "vs" | "vs-dark") {
     return basecolors[name];
   };
 
-  const getBaseColor = (name: ColorName) => getThemeColors()[name][base === "vs" ? 0 : 1];
-
-  const getBaseAllColor = (name: ColorName) => getThemeColors()[name];
-
-  const pick = ({ light, dark }: { light: string; dark: string }) => {
-    return base === "vs" ? light : dark;
-  };
+  const getBaseAllColor = (name: ColorName, grade: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 = 0) => getThemeColors()[name][grade];
 
   return {
-    "terminal.ansiBrightBlack": pick({ light: "#aaaaaa", dark: "#777777" }),
-    "terminal.ansiBrightBlue": zzhtheme("blue"),
-    "terminal.ansiBrightCyan": zzhtheme("cyan"),
-    "terminal.ansiBrightMagenta": zzhtheme("magenta"),
-    "terminal.ansiBrightRed": zzhtheme("red"),
-    "terminal.ansiBrightWhite": pick({ light: "#dddddd", dark: "#ffffff" }),
-    "terminal.ansiBrightYellow": zzhtheme("yellow"),
-    "terminal.ansiBlack": getBaseColor("black"),
-    "terminal.ansiBlue": zzhtheme("blue"),
-    "terminal.ansiCyan": zzhtheme("cyan"),
-    "terminal.ansiMagenta": zzhtheme("magenta"),
-    "terminal.ansiRed": zzhtheme("red"),
-    "terminal.ansiWhite": zzhtheme("foreground"),
-    "terminal.ansiYellow": zzhtheme("yellow"),
+    "terminal.ansiBrightBlack": getBaseAllColor("black", 3),
+    "terminal.ansiBrightBlue": getBaseAllColor("blue", 3),
+    "terminal.ansiBrightCyan": getBaseAllColor("cyan", 3),
+    "terminal.ansiBrightMagenta": getBaseAllColor("magenta", 3),
+    "terminal.ansiBrightRed": getBaseAllColor("red", 3),
+    "terminal.ansiBrightYellow": getBaseAllColor("yellow", 3),
+    "terminal.ansiBrightWhite": getBaseAllColor("white", 3),
+    "terminal.ansiBlack": getBaseAllColor("black", 5),
+    "terminal.ansiBlue": getBaseAllColor("blue", 5),
+    "terminal.ansiCyan": getBaseAllColor("cyan", 5),
+    "terminal.ansiMagenta": getBaseAllColor("magenta", 5),
+    "terminal.ansiRed": getBaseAllColor("red", 5),
+    "terminal.ansiWhite": getBaseAllColor("white", 5),
+    "terminal.ansiYellow": getBaseAllColor("yellow", 5),
+
+    "editorBracketHighlight.foreground1": getBaseAllColor("editorBracketHighlight", 0),
+    "editorBracketHighlight.foreground2": getBaseAllColor("editorBracketHighlight", 1),
+    "editorBracketHighlight.foreground3": getBaseAllColor("editorBracketHighlight", 2),
+    "editorBracketHighlight.foreground4": getBaseAllColor("editorBracketHighlight", 3),
+    "editorBracketHighlight.foreground5": getBaseAllColor("editorBracketHighlight", 4),
+    "editorBracketHighlight.foreground6": getBaseAllColor("editorBracketHighlight", 5),
 
     "gitDecoration.modifiedResourceForeground": zzhtheme("blue"),
     "gitDecoration.deletedResourceForeground": zzhtheme("red"),
     "gitDecoration.untrackedResourceForeground": zzhtheme("cyan"),
     "gitDecoration.ignoredResourceForeground": zzhtheme("ignored"),
     "gitDecoration.conflictingResourceForeground": zzhtheme("orange"),
-
     "editorGutter.modifiedBackground": zzhtheme("blue"),
     "editorGutter.deletedBackground": zzhtheme("red"),
-
-    "editorBracketHighlight.foreground1": getBaseAllColor("editorBracketHighlight")[0],
-    "editorBracketHighlight.foreground2": getBaseAllColor("editorBracketHighlight")[1],
-    "editorBracketHighlight.foreground3": getBaseAllColor("editorBracketHighlight")[2],
-    "editorBracketHighlight.foreground4": getBaseAllColor("editorBracketHighlight")[3],
-    "editorBracketHighlight.foreground5": getBaseAllColor("editorBracketHighlight")[4],
-    "editorBracketHighlight.foreground6": getBaseAllColor("editorBracketHighlight")[5],
 
     "problemsErrorIcon.foreground": zzhtheme("error"),
     "problemsWarningIcon.foreground": zzhtheme("orange"),
@@ -122,10 +117,39 @@ function unique(base: "vs" | "vs-dark") {
     "editorError.foreground": zzhtheme("error"),
     "editorWarning.foreground": zzhtheme("orange"),
     "editorInfo.foreground": zzhtheme("blue"),
-
     "editorGutter.commentRangeForeground": zzhtheme("ignored"),
-
     "editorInlayHint.foreground": zzhtheme("punctuation"),
     "editorInlayHint.background": "#00000000",
   };
+}
+
+type ColorJsonKey = Record<`${string}.${string}`, string>;
+type ColorJsonValue = {
+  name: string;
+  value: string;
+};
+function formatColorJson(obj: ColorJsonKey) {
+  const newMap = new Map<string, ColorJsonValue[]>();
+  const newObj = {};
+  Object.entries(obj).forEach(([key, value]) => {
+    const [name, title] = key.split(".");
+    const similar = newMap.get(name);
+    const mapValue = {
+      name: title,
+      value,
+    };
+    if (similar) {
+      similar.push(mapValue);
+    } else {
+      newMap.set(name, [mapValue]);
+    }
+  });
+
+  newMap.forEach((item, key) => {
+    item.forEach(({ name, value }) => {
+      newObj[`${key}.${name}`] = value;
+    });
+  });
+
+  return newObj;
 }
