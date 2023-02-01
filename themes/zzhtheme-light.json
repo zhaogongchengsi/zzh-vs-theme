@@ -36,7 +36,7 @@
     "sideBarTitle.foreground": "#333333",
     "foreground.undefined": "#333333",
     "terminal.foreground": "#333333",
-    "terminal.selectionBackground": "#FF5D5D",
+    "terminal.selectionBackground": "#373737",
     "terminal.ansiBrightGreen": "#dcffe4",
     "terminal.ansiGreen": "#dcffe4",
     "terminal.ansiBrightBlack": "#262626",

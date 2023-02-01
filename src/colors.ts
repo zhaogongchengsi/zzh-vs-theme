@@ -64,6 +64,7 @@ const ZZH_THEME = {
   error: ["#ee2746", "#E80F88"],
   regex: ["#54BAB9", "#ab5e3f"],
   async: ["#5AA897", "#ab5e3f"],
+  selectionBackground: ["#0366d6", "#373737"],
   ...colors,
 } as const;
 
