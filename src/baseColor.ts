@@ -1,4 +1,4 @@
-import { ColorName, getColors } from "./colors";
+import { ColorName, getColors, getThemeColors } from "./colors";
 const config = {
   background: [
     "editor.background",
@@ -45,7 +45,6 @@ const config = {
     "terminal.ansiGreen",
     "gitDecoration.addedResourceForeground",
     "editorGutter.addedBackground",
-    "editorBracketHighlight.foreground2",
     "editorHint.foreground",
   ],
   secondaryForeground: [
@@ -71,12 +70,14 @@ function unique(base: "vs" | "vs-dark") {
   const basecolors = getColors(base);
 
   const zzhtheme = (name: ColorName) => {
-    return basecolors[name];
+    return getThemeColors()[name];
   };
 
   const pick = ({ light, dark }: { light: string; dark: string }) => {
     return base === "vs" ? light : dark;
   };
+
+  console.log(zzhtheme("editorBracketHighlight"));
 
   return {
     "terminal.ansiBrightBlack": pick({ light: "#aaaaaa", dark: "#777777" }),
@@ -109,11 +110,12 @@ function unique(base: "vs" | "vs-dark") {
     "editorGutter.modifiedBackground": zzhtheme("blue"),
     "editorGutter.deletedBackground": zzhtheme("red"),
 
-    "editorBracketHighlight.foreground1": zzhtheme("cyan"),
-    "editorBracketHighlight.foreground3": zzhtheme("orange"),
-    "editorBracketHighlight.foreground4": zzhtheme("magenta"),
-    "editorBracketHighlight.foreground5": zzhtheme("yellow"),
-    "editorBracketHighlight.foreground6": zzhtheme("blue"),
+    "editorBracketHighlight.foreground1": zzhtheme("editorBracketHighlight")[0],
+    "editorBracketHighlight.foreground2": zzhtheme("editorBracketHighlight")[1],
+    "editorBracketHighlight.foreground3": zzhtheme("editorBracketHighlight")[2],
+    "editorBracketHighlight.foreground4": zzhtheme("editorBracketHighlight")[3],
+    "editorBracketHighlight.foreground5": zzhtheme("editorBracketHighlight")[4],
+    "editorBracketHighlight.foreground6": zzhtheme("editorBracketHighlight")[5],
 
     "problemsErrorIcon.foreground": zzhtheme("error"),
     "problemsWarningIcon.foreground": zzhtheme("orange"),

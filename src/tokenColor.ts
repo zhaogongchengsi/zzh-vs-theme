@@ -1,4 +1,4 @@
-import { getColors, ColorName } from "./colors";
+import { getColors, ColorName, getThemeColors } from "./colors";
 
 export function generateTokenColors(base: "vs" | "vs-dark") {
   const basecolors = getColors(base);
