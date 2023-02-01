@@ -61,7 +61,7 @@ export function generateColor(base: "vs" | "vs-dark") {
 
   for (const [colorName, keys] of Object.entries(config)) {
     keys.forEach((key) => {
-      colors[key] = basecolors[colorName] || "#FF5D5D"; // If the color is not configured, use red instead.
+      colors[key] = basecolors[colorName] || ""; // If the color is not configured, use red instead.
     });
   }
 
