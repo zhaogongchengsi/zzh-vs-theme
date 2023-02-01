@@ -1,26 +1,22 @@
 import { ColorName, getColors } from "./colors";
 const config = {
   background: [
-    // 编辑区域的背景颜色
     "editor.background",
-    // 顶部菜单 item 背景颜色
+    "editorGroupHeader.tabsBackground",
     "menu.background",
-    // 顶部背景颜色
     "titleBar.activeBackground",
     "titleBar.inactiveBackground",
-    // 面板显示在编辑器区域下方，包含输出和集成终端等视图的背景颜色
     "panel.background",
-    // 活动栏背景颜色
     "activityBar.background",
-    // 右侧 文件树
-    "sideBar.background",
-    // 编辑器区域的 tabs 颜色配置
-    "editorGroupHeader.tabsBackground",
+
     "tab.inactiveBackground",
     "debugToolBar.background",
     "peekViewEditor.background",
     "peekViewResult.background",
     "settings.headerForeground",
+
+    "sideBar.background",
+    "sideBarSectionHeader.background",
   ],
   activePrimary: ["tab.activeBackground"],
   black: [
@@ -37,7 +33,7 @@ const config = {
   ],
   activeForeground: ["editorLineNumber.activeForeground"],
   borderLevelOne: ["sideBarSectionHeader.border"],
-  borderLevelTwo: ["sideBar.border"],
+  borderLevelTwo: ["sideBar.border", "activityBar.border"],
   primary: [
     "button.background",
     "button.hoverBackground",
@@ -119,11 +115,11 @@ function unique(base: "vs" | "vs-dark") {
     "editorBracketHighlight.foreground5": zzhtheme("yellow"),
     "editorBracketHighlight.foreground6": zzhtheme("blue"),
 
-    "problemsErrorIcon.foreground": zzhtheme("red"),
+    "problemsErrorIcon.foreground": zzhtheme("error"),
     "problemsWarningIcon.foreground": zzhtheme("orange"),
     "problemsInfoIcon.foreground": zzhtheme("blue"),
 
-    "editorError.foreground": zzhtheme("red"),
+    "editorError.foreground": zzhtheme("error"),
     "editorWarning.foreground": zzhtheme("orange"),
     "editorInfo.foreground": zzhtheme("blue"),
 
