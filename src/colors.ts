@@ -1,7 +1,7 @@
 const colors = {
   // colors
   cyan: ["#5eaab5", "#2993a3"],
-  black: ["#131313", "#ffffff"],
+  black: ["#161616", "#ffffff"],
   magenta: ["#d9739f", "#a13865"],
   gray: [
     "#fafbfc",

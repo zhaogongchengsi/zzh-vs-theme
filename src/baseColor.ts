@@ -13,7 +13,6 @@ const config = {
     "debugToolBar.background",
     "peekViewEditor.background",
     "peekViewResult.background",
-    "settings.headerForeground",
 
     "sideBar.background",
     "sideBarSectionHeader.background",
@@ -21,6 +20,8 @@ const config = {
   activePrimary: ["tab.activeBackground"],
   black: [
     "statusBar.background", // 编辑区域 活动页激活颜色
+    // "breadcrumb.background",
+    "input.background",
   ],
   foreground: [
     "activityBar.foreground",
@@ -30,11 +31,19 @@ const config = {
     "sideBarSectionHeader.foreground",
     "foreground",
     "terminal.foreground",
+    "settings.headerForeground",
   ],
-  activeForeground: ["editorLineNumber.activeForeground"],
+  activeForeground: ["editorLineNumber.activeForeground", "The line that indicates a modified setting."],
   borderLevelOne: ["sideBarSectionHeader.border"],
   borderLevelTwo: ["sideBar.border", "activityBar.border"],
-  primary: ["button.background", "button.hoverBackground", "settings.modifiedItemIndicator"],
+  primary: [
+    "button.background",
+    "button.hoverBackground",
+    "settings.modifiedItemIndicator",
+    "settings.checkboxForeground",
+    "settings.checkboxBorder",
+    "breadcrumb.activeSelectionForeground",
+  ],
   selectionBackground: ["terminal.selectionBackground"],
   green: [
     "terminal.ansiBrightGreen",
