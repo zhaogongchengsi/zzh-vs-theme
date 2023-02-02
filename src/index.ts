@@ -1,30 +1,43 @@
 import { promises as fs } from "fs";
-import { join } from "path";
 import jsonFromat from "json-format";
 import { generateTheme } from "./theme";
+import { parse } from "path";
 
-const theme = "./themes";
-var config = {
-  type: "space",
-  size: 2,
+type theme = {
+  label: string;
+  uiTheme: "vs-dark" | "vs";
+  path: string;
+};
+
+type Contributes = {
+  themes: theme[];
 };
 
 (async function () {
   try {
-    await fs.mkdir(theme, { recursive: true });
-    fs.writeFile(
-      join(theme, "zzhtheme-dark.json"),
-      jsonFromat(
-        generateTheme({ name: "ZzhTheme Dark", base: "vs-dark" }),
-        config
-      )
-    );
-    fs.writeFile(
-      join(theme, "zzhtheme-light.json"),
-      jsonFromat(generateTheme({ name: "ZzhTheme Light", base: "vs" }), config)
-    );
+    const { contributes }: { contributes: Contributes } = await readJson("./package.json");
+    contributes.themes
+      .map(({ label, uiTheme, path }) => {
+        return async () => {
+          const { dir } = parse(path);
+          await fs.mkdir(dir, { recursive: true });
+          return fs.writeFile(
+            path,
+            jsonFromat(generateTheme({ name: label, base: uiTheme }), {
+              type: "space",
+              size: 2,
+            })
+          );
+        };
+      })
+      .forEach((r) => r());
   } catch (err) {
     console.error(err);
     process.exit(0);
   }
 })();
+
+async function readJson(path: string) {
+  const buf = await fs.readFile(path);
+  return JSON.parse(buf.toString());
+}
