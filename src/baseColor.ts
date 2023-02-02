@@ -45,13 +45,7 @@ const config = {
     "breadcrumb.activeSelectionForeground",
   ],
   selectionBackground: ["terminal.selectionBackground"],
-  green: [
-    "terminal.ansiBrightGreen",
-    "terminal.ansiGreen",
-    "gitDecoration.addedResourceForeground",
-    "editorGutter.addedBackground",
-    "editorHint.foreground",
-  ],
+  green: ["gitDecoration.addedResourceForeground", "editorGutter.addedBackground", "editorHint.foreground"],
   secondaryForeground: ["gitDecoration.submoduleResourceForeground", "editorGutter.foldingControlForeground"],
 };
 
@@ -80,13 +74,16 @@ function unique(base: "vs" | "vs-dark") {
   const getBaseAllColor = (name: ColorName, grade: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 = 0) => getThemeColors()[name][grade];
 
   return {
-    "terminal.ansiBrightBlack": getBaseAllColor("black", 3),
-    "terminal.ansiBrightBlue": getBaseAllColor("blue", 3),
-    "terminal.ansiBrightCyan": getBaseAllColor("cyan", 3),
-    "terminal.ansiBrightMagenta": getBaseAllColor("magenta", 3),
-    "terminal.ansiBrightRed": getBaseAllColor("red", 3),
-    "terminal.ansiBrightYellow": getBaseAllColor("yellow", 3),
-    "terminal.ansiBrightWhite": getBaseAllColor("white", 3),
+    "terminal.ansiBrightGreen": getBaseAllColor("green", 7),
+    "terminal.ansiBrightBlack": getBaseAllColor("black", 1),
+    "terminal.ansiBrightBlue": getBaseAllColor("blue", 6),
+    "terminal.ansiBrightCyan": getBaseAllColor("cyan", 9),
+    "terminal.ansiBrightMagenta": getBaseAllColor("magenta", 6),
+    "terminal.ansiBrightRed": getBaseAllColor("red", 8),
+    "terminal.ansiBrightYellow": getBaseAllColor("yellow", 7),
+    "terminal.ansiBrightWhite": getBaseAllColor("white", 1),
+    
+    "terminal.ansiGreen": getBaseAllColor("green", 7),
     "terminal.ansiBlack": getBaseAllColor("black", 5),
     "terminal.ansiBlue": getBaseAllColor("blue", 5),
     "terminal.ansiCyan": getBaseAllColor("cyan", 5),
