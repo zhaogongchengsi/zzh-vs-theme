@@ -16,21 +16,23 @@ type Contributes = {
 (async function () {
   try {
     const { contributes }: { contributes: Contributes } = await readJson("./package.json");
-    contributes.themes
-      .map(({ label, uiTheme, path }) => {
-        return async () => {
-          const { dir } = parse(path);
-          await fs.mkdir(dir, { recursive: true });
-          return fs.writeFile(
-            path,
-            jsonFromat(generateTheme({ name: label, base: uiTheme }), {
-              type: "space",
-              size: 2,
-            })
-          );
-        };
-      })
-      .forEach((r) => r());
+    await Promise.all(
+      contributes.themes
+        .map(({ label, uiTheme, path }) => {
+          return async () => {
+            const { dir } = parse(path);
+            await fs.mkdir(dir, { recursive: true });
+            return fs.writeFile(
+              path,
+              jsonFromat(generateTheme({ name: label, base: uiTheme }), {
+                type: "space",
+                size: 2,
+              })
+            );
+          };
+        })
+        .map((r) => r())
+    );
   } catch (err) {
     console.error(err);
     process.exit(0);
