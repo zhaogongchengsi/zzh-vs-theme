@@ -1,16 +1,19 @@
-const colors = {
-  cyan: ["#04ECF8", "#04E4F0", "#03DCE7", "#03D4DF", "#03D0DB", "#02CCD6", "#02C4CE", "#01BCC5", "#01B4BC", "#00ABB3"],
-  white: ["#FFFFFF", "#FBFBFB", "#F7F7F7", "#EEEEEE", "#E5E5E5", "#DCDCDC", "#CACACA", "#C6C6C6", "#C1C1C1", "#B8B8B8"],
-  black: ["#161616", "#222222", "#242424", "#262626", "#282828", "#2A2A2A", "#2F2F2F", "#333333", "#373737", "#3B3B3B"],
-  magenta: ["#EC2C64", "#D5285A", "#BD2450", "#B1224B", "#A52046", "#8D1C3C", "#751832", "#5D1428", "#45101E", "#2D0C13"],
-  gray: ["#fafbfc", "#f6f8fa", "#e1e4e8", "#d1d5da", "#959da5", "#6a737d", "#586069", "#444d56", "#2f363d", "#24292e"],
-  blue: ["#f1f8ff", "#dbedff", "#c8e1ff", "#79b8ff", "#2188ff", "#0366d6", "#005cc5", "#044289", "#032f62", "#05264c"],
-  green: ["#f0fff4", "#dcffe4", "#bef5cb", "#85e89d", "#34d058", "#28a745", "#22863a", "#176f2c", "#165c26", "#144620"],
-  yellow: ["#fffdef", "#fffbdd", "#fff5b1", "#ffea7f", "#ffdf5d", "#ffd33d", "#f9c513", "#dbab09", "#b08800", "#735c0f"],
-  orange: ["#fff8f2", "#ffebda", "#ffd1ac", "#ffab70", "#fb8532", "#f66a0a", "#e36209", "#d15704", "#c24e00", "#a04100"],
-  red: ["#ffeef0", "#ffdce0", "#fdaeb7", "#f97583", "#ea4a5a", "#d73a49", "#cb2431", "#b31d28", "#9e1c23", "#86181d"],
-  purple: ["#f5f0ff", "#e6dcfd", "#d1bcf9", "#b392f0", "#8a63d2", "#6f42c1", "#5a32a3", "#4c2889", "#3a1d6e", "#29134e"],
-  pink: ["#ffeef8", "#fedbf0", "#f9b3dd", "#f692ce", "#ec6cb9", "#ea4aaa", "#d03592", "#b93a86", "#99306f", "#6d224f"],
+
+const wb = ["#FFFFFF", "#F0F0F0", "#E0E0E0", "#B0B0B0", "#A0A0A0", "#808080", "#606060", "#404040", "#202020", "#000000"];
+
+const colorDark = {
+  white: wb,
+  black: wb.reverse(),
+  cyan: ["#005F64", "#00838F", "#0097A7", "#01ACC1", "#02BCD4", "#25C6DA", "#4DD0E1", "#7FDEEA", "#B3EBF2", "#E0F7FA"],
+  magenta: ["#FF0091", "#FF1A9C", "#FF33A7", "#FF4DB2", "#FF66BD", "#FF80C8", "#FF99D3", "#FFB3DE", "#FFCCE9", "#FFE6F4"],
+  gray: ["#212121", "#424242", "#616161", "#757575", "#9E9E9E", "#BDBDBD", "#E0E0E0", "#EEEEEE", "#F5F5F5", "#FAFAFA"],
+  blue: ["#053170", "#0A4694", "#135CB8", "#1D75DB", "#2990FF", "#54A9FF", "#7FC1FF", "#A9D7FF", "#D4ECFF", "#EFF8FF"],
+  green: ["#123C19", "#1C5A25", "#277731", "#32953D", "#3EB349", "#5DC264", "#7FD184", "#A6E1A8", "#D0F0D1", "#ECF7EC"],
+  orange: ["#551F03", "#803506", "#AA500A", "#D56F0F", "#FF9214", "#FFAE43", "#FFC772", "#FFDDA1", "#FFEFD0", "#FFF9ED"],
+  yellow: ["#544903", "#7E6C06", "#A88E0A", "#D2AF0F", "#FCCE14", "#FDDE43", "#FDEB71", "#FEF5A0", "#FEFBD0", "#FFFEEC"],
+  red: ["#6C090B", "#901110", "#B42019", "#D73324", "#FB4932", "#FC725A", "#FD9983", "#FD9983", "#FDBEAC", "#FEE0D5"],
+  pink: ["#5C0730", "#800E41", "#A41751", "#C72261", "#EB2F71", "#EF5686", "#F37E9F", "#F7A8BC", "#FBD3DC", "#FDEEF1"],
+  purple: ["#4A1061", "#5E1776", "#731F8A", "#89289F", "#A033B3", "#B553C2", "#CA78D1", "#DDA0E1", "#EFCEF0", "#F7EBF7"],
   editorBracketHighlight: ["#FFE15D", "#8FBDD3", "#EA5C2B", "#FF8DC7", "#B2A4FF", "#ea4aaa"],
 };
 
@@ -65,13 +68,14 @@ const ZZH_THEME = {
   regex: ["#54BAB9", "#ab5e3f"],
   async: ["#5AA897", "#ab5e3f"],
   selectionBackground: ["#0366d6", "#373737"],
-  ...colors,
+  ...colorDark,
 } as const;
 
 export type ColorName = keyof typeof ZZH_THEME;
 export type Colors = Record<ColorName, string[]>;
+export type Base = "vs" | "vs-dark";
 
-export function getColors(base: "vs" | "vs-dark"): Colors {
+export function getColors(base: Base): Colors {
   const colors = {};
   for (const [name, [dark, light]] of Object.entries(ZZH_THEME)) {
     colors[name] = base === "vs" ? light : dark;
@@ -80,5 +84,5 @@ export function getColors(base: "vs" | "vs-dark"): Colors {
 }
 
 export function getThemeColors() {
-  return colors;
+  return colorDark;
 }

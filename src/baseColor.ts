@@ -16,10 +16,11 @@ const config = {
 
     "sideBar.background",
     "sideBarSectionHeader.background",
+    "statusBar.background",
+    "editorInlayHint.background",
   ],
   activePrimary: ["tab.activeBackground"],
   black: [
-    "statusBar.background", // 编辑区域 活动页激活颜色
     // "breadcrumb.background",
     "input.background",
   ],
@@ -73,24 +74,27 @@ function unique(base: "vs" | "vs-dark") {
 
   const getBaseAllColor = (name: ColorName, grade: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 = 0) => getThemeColors()[name][grade];
 
+  const ansiBrightLe = 3;
+  const ansiLe = 1;
+
   return {
-    "terminal.ansiBrightGreen": getBaseAllColor("green", 7),
-    "terminal.ansiBrightBlack": getBaseAllColor("black", 1),
-    "terminal.ansiBrightBlue": getBaseAllColor("blue", 6),
-    "terminal.ansiBrightCyan": getBaseAllColor("cyan", 9),
-    "terminal.ansiBrightMagenta": getBaseAllColor("magenta", 6),
-    "terminal.ansiBrightRed": getBaseAllColor("red", 8),
-    "terminal.ansiBrightYellow": getBaseAllColor("yellow", 7),
-    "terminal.ansiBrightWhite": getBaseAllColor("white", 1),
-    
-    "terminal.ansiGreen": getBaseAllColor("green", 7),
-    "terminal.ansiBlack": getBaseAllColor("black", 5),
-    "terminal.ansiBlue": getBaseAllColor("blue", 5),
-    "terminal.ansiCyan": getBaseAllColor("cyan", 5),
-    "terminal.ansiMagenta": getBaseAllColor("magenta", 5),
-    "terminal.ansiRed": getBaseAllColor("red", 5),
-    "terminal.ansiWhite": getBaseAllColor("white", 5),
-    "terminal.ansiYellow": getBaseAllColor("yellow", 5),
+    "terminal.ansiBrightGreen": getBaseAllColor("green", ansiBrightLe),
+    "terminal.ansiBrightBlack": getBaseAllColor("black", ansiBrightLe),
+    "terminal.ansiBrightBlue": getBaseAllColor("blue", ansiBrightLe),
+    "terminal.ansiBrightCyan": getBaseAllColor("cyan", ansiBrightLe),
+    "terminal.ansiBrightMagenta": getBaseAllColor("magenta", ansiBrightLe),
+    "terminal.ansiBrightRed": getBaseAllColor("red", ansiBrightLe),
+    "terminal.ansiBrightYellow": getBaseAllColor("yellow", ansiBrightLe),
+    "terminal.ansiBrightWhite": getBaseAllColor("white", ansiBrightLe),
+
+    "terminal.ansiGreen": getBaseAllColor("green", ansiLe),
+    "terminal.ansiBlack": getBaseAllColor("black", ansiLe),
+    "terminal.ansiBlue": getBaseAllColor("blue", ansiLe),
+    "terminal.ansiCyan": getBaseAllColor("cyan", ansiLe),
+    "terminal.ansiMagenta": getBaseAllColor("magenta", ansiLe),
+    "terminal.ansiRed": getBaseAllColor("red", ansiLe),
+    "terminal.ansiWhite": getBaseAllColor("white", ansiLe),
+    "terminal.ansiYellow": getBaseAllColor("yellow", ansiLe),
 
     "editorBracketHighlight.foreground1": getBaseAllColor("editorBracketHighlight", 0),
     "editorBracketHighlight.foreground2": getBaseAllColor("editorBracketHighlight", 1),
@@ -116,7 +120,6 @@ function unique(base: "vs" | "vs-dark") {
     "editorInfo.foreground": zzhtheme("blue"),
     "editorGutter.commentRangeForeground": zzhtheme("ignored"),
     "editorInlayHint.foreground": zzhtheme("punctuation"),
-    "editorInlayHint.background": "#00000000",
   };
 }
 
